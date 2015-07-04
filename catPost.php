@@ -22,15 +22,14 @@ foreach($pictures as $picture) {
 
     if(isset($picture["media_url"])) {
         //認証コードの下に追加
-        //$media_id = $connection->upload("media/upload", array("media" => $picture["media_url"]));
-        //$post["media_ids"] = $media_id->media_id_string;
+        $media_id = $connection->upload("media/upload", array("media" => $picture["media_url"]));
+        $post["media_ids"] = $media_id->media_id_string;
     }
 
 
     // tweet
-    //$res = $connection->post("statuses/update", $post);
-    //var_dump($post);
-    //sleep(300);
+    $res = $connection->post("statuses/update", $post);
+    sleep(300);
 }
 
 
