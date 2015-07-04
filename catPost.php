@@ -34,7 +34,15 @@ foreach($pictures as $picture) {
 
 
 function getTumblrPictures() {
-    $url = "https://www.tumblr.com/search/catphoto/recent";
+    $queries = array(
+        "catphoto",
+        "catpicture",
+        "catsofig",
+        "catphotography",
+        "catstagram"
+    );
+    shuffle($queries);
+    $url = "https://www.tumblr.com/search/" + $queries[0] + "/recent";
     $html = file_get_contents($url);
     $htmlArray = explode("\n", $html);
     $mongonArray = array(
