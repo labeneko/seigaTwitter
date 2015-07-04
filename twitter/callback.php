@@ -30,4 +30,4 @@ $_SESSION['access_token'] = $connection->oauth("oauth/access_token", array("oaut
 session_regenerate_id();
 
 //マイページへリダイレクト
-header( 'location: /mypage.php' );
+header( 'location: /seigaTwitter/twitter/mypage.php' );
