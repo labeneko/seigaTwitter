@@ -86,8 +86,12 @@ function getTumblrPictures() {
 
     // aff
     $pictures[] = array(
-        "tweet_text" => "かわいい猫の写真集にゃん♪ http://www.amazon.co.jp/%E5%B2%A9%E5%90%88%E5%85%89%E6%98%AD%E5%86%99%E7%9C%9F%E9%9B%86-%E3%81%AD%E3%81%93%E8%BC%9D%E3%81%8F-%E5%B2%A9%E5%90%88-%E5%",
+        "tweet_text" => "かわいい猫の写真集にゃん♪ http://www.amazon.co.jp/dp/4777814696/?tag=labeinu-22",
         "media_url" => "https://pbs.twimg.com/media/CJEa60EUcAEoMt6.jpg",
+    );
+    $pictures[] = array(
+        "tweet_text" => "かわいい猫の写真集にゃ http://www.amazon.co.jp/dp/4047317314/?tag=labeinu-22",
+        "media_url" => "http://ecx.images-amazon.com/images/I/91HngifsNpL.jpg",
     );
     shuffle($pictures);
     return $pictures;
