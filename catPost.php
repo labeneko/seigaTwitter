@@ -43,7 +43,7 @@ function getTumblrPictures() {
         "catstagram"
     );
     shuffle($queries);
-    $url = "https://www.tumblr.com/search/" + $queries[0] + "/recent";
+    $url = "https://www.tumblr.com/search/" . $queries[0] . "/recent";
     $html = file_get_contents($url);
     $htmlArray = explode("\n", $html);
     $mongonArray = array(
