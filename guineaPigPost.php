@@ -2,7 +2,7 @@
 
 session_start();
 
-require_once 'twitter/rabbit_common.php';
+require_once 'twitter/guineapig_common.php';
 require_once 'twitter/twitteroauth/autoload.php';
 
 use Abraham\TwitterOAuth\TwitterOAuth;
