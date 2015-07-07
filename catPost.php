@@ -35,11 +35,12 @@ foreach($pictures as $picture) {
 
 function getTumblrPictures() {
     $queries = array(
-        "catphoto",
+        //"catphoto",
         "catpicture",
         "catsofig",
         "catphotography",
-        "catstagram"
+        "catstagram",
+        "%E3%81%AD%E3%81%93%E9%83%A8"
     );
     shuffle($queries);
     $url = "https://www.tumblr.com/search/" . $queries[0] . "/recent";
@@ -92,6 +93,10 @@ function getTumblrPictures() {
     $pictures[] = array(
         "tweet_text" => "かわいい猫の写真集にゃ http://www.amazon.co.jp/dp/4047317314/?tag=labeinu-22",
         "media_url" => "http://ecx.images-amazon.com/images/I/91HngifsNpL.jpg",
+    );
+    $pictures[] = array(
+        "tweet_text" => "美しい猫の写真集にゃ http://www.amazon.co.jp/dp/4767817358/?tag=labeinu-22",
+        "media_url" => "http://ecx.images-amazon.com/images/I/51sqb8%2B2v0L.jpg",
     );
     shuffle($pictures);
     return $pictures;
