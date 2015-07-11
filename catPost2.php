@@ -67,12 +67,14 @@ function getTumblrPictures() {
                     $image_path = file_get_contents($mediaUrl, FILE_BINARY); // 画像ファイルを取得
                     file_put_contents("checkimg", $image_path);
                     $tesseract = new TesseractOCR('checkimg');
-                    if(!$tesseract->recognize()) {
-                        $pictures[] = array(
-                            "tweet_text" => "hoe- #" . $queries[0],
-                            "media_url" => $matches[1],
-                        );
+                    $moji = "文字ないです";
+                    if($tesseract->recognize()) {
+                        $moji = "文字あるです";
                     }
+                    $pictures[] = array(
+                        "tweet_text" => "#" . $queries[0],
+                        "media_url" => $matches[1],
+                    );
                 }
             }
         }
