@@ -69,7 +69,7 @@ function getTumblrPictures() {
                     $tesseract = new TesseractOCR('checkimg');
                     if(!$tesseract->recognize()) {
                         $pictures[] = array(
-                            "tweet_text" => "これには文字が入ってないにゃん",
+                            "tweet_text" => "hoe- #" . $queries[0],
                             "media_url" => $matches[1],
                         );
                     }
