@@ -4,7 +4,7 @@ session_start();
 
 require_once 'twitter/cat_common_dev.php';
 require_once 'twitter/twitteroauth/autoload.php';
-require_once 'tesseract-ocr-for-php/TesseractOCR/TesseractOCR.php';
+require_once '../tesseract-ocr-for-php/TesseractOCR/TesseractOCR.php';
 
 use Abraham\TwitterOAuth\TwitterOAuth;
 
