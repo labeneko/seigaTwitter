@@ -4,6 +4,7 @@ session_start();
 
 require_once 'twitter/cat_common.php';
 require_once 'twitter/twitteroauth/autoload.php';
+require_once '../tesseract-ocr-for-php/TesseractOCR/TesseractOCR.php';
 
 use Abraham\TwitterOAuth\TwitterOAuth;
 
@@ -60,9 +61,16 @@ function getTumblrPictures() {
             if(preg_match("/src=\"(.*media.tumblr.*jpg)/", $htmlLine, $matches)) {
                 if(isset($matches[1])) {
                     $randKeys = array_rand($mongonArray, 1);
+                    $mediaUrl = $matches[1];
+                    $image_path = file_get_contents($mediaUrl, FILE_BINARY); // 画像ファイルを取得
+                    file_put_contents("checkimg", $image_path);
+                    $tesseract = new TesseractOCR('checkimg');
+                    if($tesseract->recognize()) {
+                        continue;
+                    }
                     $pictures[] = array(
                         "tweet_text" => $mongonArray[$randKeys],
-                        "media_url" => $matches[1],
+                        "media_url" => $mediaUrl,
                     );
                 }
             }
