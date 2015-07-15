@@ -68,6 +68,10 @@ function getTumblrPictures() {
                     if($tesseract->recognize()) {
                         continue;
                     }
+
+                    if(isFace($mediaUrl)) {
+                        continue;
+                    }
                     $pictures[] = array(
                         "tweet_text" => $mongonArray[$randKeys],
                         "media_url" => $mediaUrl,
@@ -108,4 +112,18 @@ function getTumblrPictures() {
     );
     shuffle($pictures);
     return $pictures;
+}
+
+function isFace($url) {
+    $url = "http://access.alchemyapi.com/calls/image/ImageGetRankedImageFaceTags?"
+        . "apikey=8ab5975836277e8e47b3f448f65faace1beac9f9&"
+        . "imagePostMode=not-raw&"
+        . "outputMode=json&"
+        . "url=" . urlencode($url);
+
+    $content = file_get_contents($url);
+
+    $result = json_decode($content, true);
+
+    return count($result["imageFaces"]) > 0;
 }
